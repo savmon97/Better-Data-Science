@@ -5,7 +5,6 @@
 #                                   #
 #-----------------------------------#
 
-
 # In this script, we are combining the UI and Server into one script called 
 # app.R
 # This changes our syntax slightly. instead
