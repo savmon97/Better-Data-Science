@@ -23,7 +23,7 @@ read.table("oesm.csv", sep=";", header = TRUE, fill = TRUE, nrows = 5)
 #-------------------------------------------
 
 # Begin SQL processing by creating a new database
-# Then add tables
+# Then add tables - THOR - we need to create a bifrost, but it will remain temporary
 
 {
   # connect to or create a new SQlite database
@@ -110,8 +110,7 @@ dbClearResult(res)
 # Count number of observations for each year
 # You must also add the group by option
 res <- dbSendQuery(conemp, "
-                   SELECT COUNT(*) AS annualwagecount,
-                   year
+                   SELECT COUNT(*) AS annualwagecount,year
                    FROM oesm
                   GROUP BY year
                    ")
@@ -173,7 +172,7 @@ dbClearResult(res)
 #-------------------------------------------
 # Create new tables from same database
 res <- dbSendQuery(conemp, "
-                   CREATE TABLE occup AS
+                   CREATE TABLE occup As
                    SELECT DISTINCT occcode,occtitle
                     FROM oesm
                    ")
